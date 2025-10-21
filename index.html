@@ -52,6 +52,37 @@
     .btn{display:inline-block;padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
     .kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
     .nowrap{white-space:nowrap}
+    .link-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .link-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-top: 1px dashed var(--border);
+    }
+
+    .link-list li:first-child {
+      border-top: none;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      opacity: 0.85;
+      filter: invert(80%) sepia(10%) saturate(200%) hue-rotate(200deg);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    a:hover .icon {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -64,7 +95,7 @@
       <div class="right">
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#pubs">Publications</a>
         <a href="#contact">Contact</a>
         <a class="btn" href="./Xinwei_CV.pdf" download>Download CV</a>
@@ -78,8 +109,8 @@
         <div class="kicker">LiDAR–Camera · 3D Perception · Autonomous Driving</div>
         <h1>Hello, I’m Xinwei.</h1>
         <p class="muted">
-          Graduate researcher at MSU, focusing on <strong>LiDAR–Camera sensor fusion</strong>, <strong>self‑calibration</strong>, and <strong>3D perception</strong>.
-          Previously worked in the LiDAR industry on deployment, calibration, and performance evaluation. Currently developing <strong>DA‑LCCNet</strong>, a domain‑adaptive calibration network in PyTorch.
+          Graduate researcher at MSU, focusing on LiDAR–Camera sensor fusion, self‑calibration, and 3D perception.
+          Previously worked in the LiDAR industry on deployment, calibration, and performance evaluation. Currently developing DA‑LCCNet, a domain‑adaptive calibration network in PyTorch.
         </p>
         <div>
           <span class="pill">PyTorch</span>
@@ -106,25 +137,33 @@
       <section id="research" class="card">
         <h2>Research Topics</h2>
         <ul class="list">
-          <li><strong>LiDAR–Camera Self‑Calibration:</strong> Cost volume network with matching head regressing 6‑DoF extrinsics; domain‑robust design.</li>
-          <li><strong>Error Propagation:</strong> Studying how miscalibration affects 3D detection AP and robustness curves.</li>
-          <li><strong>Dataset Engineering:</strong> Converting MSU‑4S dataset into nuScenes‑style structure for BEVFusion experiments.</li>
+          <li><strong>LiDAR–Camera Self-Calibration:</strong> Conducted a comprehensive review of existing calibration methods and evaluated their accuracy by testing calibration errors through a 3D object detector.</li>
+          <li><strong>Sensor Fusion Domain Adaptation:</strong> Developed DA-LCCNet, an enhanced model with domain-adaptation modules that significantly reduce calibration errors under domain-shift conditions, improving 3D object detection performance by over 50%.</li>
         </ul>
       </section>
 
       <!-- Quick Links -->
       <section class="card">
         <h2>Quick Links</h2>
-        <ul class="list">
-          <li>GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/your-id</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/your-id</a></li>
-          <li>Google Scholar: <a href="#" target="_blank" rel="noreferrer">Scholar profile</a></li>
-          <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+        <ul class="link-list">
+          <li>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg" class="icon" alt="Google Scholar" />
+            <a href="https://scholar.google.com/citations?user=abcd1234" target="_blank" rel="noreferrer">Google Scholar</a>
+          </li>
+          <li>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" class="icon" alt="GitHub" />
+            <a href="https://github.com/XWGuo99" target="_blank" rel="noreferrer">GitHub</a>
+          </li>
+          <li>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" class="icon" alt="LinkedIn" />
+            <a href="https://www.linkedin.com/in/xinwei-guo-8a02b2108/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </li>
         </ul>
       </section>
 
+
       <!-- Projects -->
-      <section id="projects" class="card" style="grid-column:1 / -1">
+      <!-- <section id="projects" class="card" style="grid-column:1 / -1">
         <h2>Representative Projects</h2>
         <ul class="list">
           <li>
@@ -140,34 +179,92 @@
             <div class="muted">• Compatible with BEVFusion training/validation • Includes example scripts and sanity checks</div>
           </li>
         </ul>
+      </section> -->
+      <!-- Education -->
+      <section id="education" class="card" style="grid-column: 1 / -1">
+        <h2>Education</h2>
+        <ul class="list">
+          <li>
+            <strong>Michigan State University</strong> — M.S. in Electrical & Computer Engineering  
+            <div class="muted">Aug 2023 – May 2026 (expected)</div>
+            <div class="muted">Focus: Autonomous Driving · Sensor Fusion · LiDAR–Camera Calibration</div>
+          </li>
+          <li>
+            <strong>Purdue University</strong> — M.S. in Mechanical Engineering  
+            <div class="muted">Aug 2014 – May 2016</div>
+            <div class="muted">Focus: Control Systems · Embedded Systems · Robotics</div>
+          </li>
+          <li>
+            <strong>Xi'an Jiaotong University</strong> — B.Eng. in Mechanical Engineering and Automation  
+            <div class="muted">Sep 2007 – Jul 2011</div>
+          </li>
+        </ul>
       </section>
+
+
 
       <!-- Publications -->
       <section id="pubs" class="card" style="grid-column:1 / -1">
         <h2>Publications</h2>
         <ul class="list">
-          <li><strong>LiDAR‑Camera Self‑Calibration Using Cost Volume Network (LCCNet)</strong> — CVPR 2021 paper reproduction and evaluation.
-            <div class="muted">Authors et al., Conference/Journal, Year. BibTeX/DOI placeholder.</div>
+          <li>
+            <strong>A Taxonomization and Comparative Evaluation of Targetless Camera–LiDAR Calibration for Autonomous Vehicles</strong>  
+            — <em>IEEE 27th International Conference on Intelligent Transportation Systems (ITSC)</em>, 2024.  
+            <div class="muted">
+              <strong>Authors:</strong> X. Guo, D. Kent, X. Lu, <em>et al.</em><br>
+              <strong>Pages:</strong> 4040–4045 · <strong>Publisher:</strong> IEEE
+            </div>
           </li>
-          <li><strong>Domain‑Adaptive LiDAR‑Camera Calibration (DA‑LCCNet)</strong> — Preprint / Under Review.
-            <div class="muted">Authors et al., arXiv:xxxx.xxxxx, Year.</div>
+          <li>
+            <strong>Domain-Adaptive LiDAR–Camera Calibration Network (DA-LCCNet) for Autonomous Driving under Changing Weather Conditions</strong>  
+            — <em>To Appear, IEEE Intelligent Vehicles Symposium (IV)</em>, 2025 (under preparation).  
+            <div class="muted">
+              <strong>Authors:</strong> X. Guo, <em>et al.</em><br>
+              <strong>Status:</strong> Manuscript in preparation · <strong>Target Venue:</strong> IEEE IV 2025
+            </div>
           </li>
         </ul>
       </section>
 
+
+
       <!-- Contact -->
       <section id="contact" class="card" style="grid-column:1 / -1">
         <h2>Contact</h2>
-        <p>Feel free to reach out regarding internships, collaborations, or open‑source contributions.</p>
-        <form name="contact" onsubmit="event.preventDefault(); alert('Thank you for your message! This is a static demo, please use email instead.');">
+        <p>Feel free to reach out regarding research collaborations, internships, or open-source projects.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/xzzjqowr" method="POST">
           <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr;max-width:720px">
-            <input required placeholder="Your Name" style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)" />
-            <input required type="email" placeholder="Email" style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)" />
-            <textarea required placeholder="Message..." rows="4" style="grid-column:1/-1;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)"></textarea>
+            <input name="name" placeholder="Your Name" required 
+                  style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
+            <input name="email" type="email" placeholder="Email" required 
+                  style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
+            <textarea name="message" placeholder="Message..." rows="4" required 
+                      style="grid-column:1/-1;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)"></textarea>
             <button class="btn" type="submit">Send</button>
           </div>
         </form>
       </section>
+
+      <!-- Optional JS for success message -->
+      <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            alert('✅ Message sent! Thank you for reaching out.');
+            form.reset();
+          } else {
+            alert('❌ Failed to send message. Please try again later.');
+          }
+        });
+      </script>
+
     </main>
 
     <footer>
