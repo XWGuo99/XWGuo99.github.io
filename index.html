@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xinwei | Personal Homepage</title>
+  <meta name="description" content="Researcher focusing on LiDAR–Camera sensor fusion, 3D perception, and autonomous driving." />
+  <meta property="og:title" content="Xinwei | Personal Homepage" />
+  <meta property="og:description" content="Researcher focusing on LiDAR–Camera sensor fusion, 3D perception, and autonomous driving." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: #111a2e;
+      --text: #d8e1ff;
+      --muted: #a9b5d1;
+      --accent: #7aa2ff;
+      --border: #1d2a46;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f9fc;
+        --card: #ffffff;
+        --text: #1b2430;
+        --muted: #4b5566;
+        --accent: #335cff;
+        --border: #e6eaf2;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1024px;margin:0 auto;padding:24px}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0}
+    .nav .right{display:flex;gap:14px;flex-wrap:wrap}
+    .badge{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.02))}
+    header.hero{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin-top:8px}
+    .avatar{width:120px;height:120px;border-radius:24px;border:1px solid var(--border);object-fit:cover;background:#222}
+    h1{font-size:28px;line-height:1.2;margin:0}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 860px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .card h2{margin:0 0 8px 0;font-size:18px}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{padding:8px 0;border-top:1px dashed var(--border)}
+    .list li:first-child{border-top:none}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(122,162,255,.15);border:1px solid var(--border);margin:4px 6px 0 0}
+    footer{margin:32px 0 12px;color:var(--muted);font-size:14px}
+    .btn{display:inline-block;padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+    .kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .nowrap{white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="left">
+        <span class="badge">Xinwei · Personal Homepage</span>
+      </div>
+      <div class="right">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#pubs">Publications</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="./Xinwei_CV.pdf" download>Download CV</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <img class="avatar" src="avatar.jpg" alt="Profile Picture" />
+      <div>
+        <div class="kicker">LiDAR–Camera · 3D Perception · Autonomous Driving</div>
+        <h1>Hello, I’m Xinwei.</h1>
+        <p class="muted">
+          Graduate researcher at MSU, focusing on <strong>LiDAR–Camera sensor fusion</strong>, <strong>self‑calibration</strong>, and <strong>3D perception</strong>.
+          Previously worked in the LiDAR industry on deployment, calibration, and performance evaluation. Currently developing <strong>DA‑LCCNet</strong>, a domain‑adaptive calibration network in PyTorch.
+        </p>
+        <div>
+          <span class="pill">PyTorch</span>
+          <span class="pill">Sensor Fusion</span>
+          <span class="pill">Calibration</span>
+          <span class="pill">3D Detection</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid grid-3" style="margin-top:20px">
+      <!-- About -->
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p>
+          I aim to bridge real‑world multi‑modal sensing and deep learning to build deployable autonomous driving perception systems.
+          My recent focus includes targetless LiDAR‑Camera self‑calibration, domain adaptation, and analyzing how calibration error impacts 3D object detection.
+        </p>
+        <p class="muted">Keywords: LCCNet, DA‑LCCNet, BEV Perception, NuScenes / MSU‑4S</p>
+      </section>
+
+      <!-- Research -->
+      <section id="research" class="card">
+        <h2>Research Topics</h2>
+        <ul class="list">
+          <li><strong>LiDAR–Camera Self‑Calibration:</strong> Cost volume network with matching head regressing 6‑DoF extrinsics; domain‑robust design.</li>
+          <li><strong>Error Propagation:</strong> Studying how miscalibration affects 3D detection AP and robustness curves.</li>
+          <li><strong>Dataset Engineering:</strong> Converting MSU‑4S dataset into nuScenes‑style structure for BEVFusion experiments.</li>
+        </ul>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="card">
+        <h2>Quick Links</h2>
+        <ul class="list">
+          <li>GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/your-id</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/your-id</a></li>
+          <li>Google Scholar: <a href="#" target="_blank" rel="noreferrer">Scholar profile</a></li>
+          <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="card" style="grid-column:1 / -1">
+        <h2>Representative Projects</h2>
+        <ul class="list">
+          <li>
+            <strong>DA‑LCCNet</strong> — Domain‑Adaptive LiDAR–Camera Calibration Network.
+            <div class="muted">• Improves calibration accuracy and boosts 3D detection AP by ~50% over baseline.<br/>• PyTorch • Dual ResNet‑18 Encoders • Matching Head regressing 6‑DoF</div>
+            <div style="margin-top:8px">
+              <a class="btn" href="#">Paper / Report</a>
+              <a class="btn" href="#" style="margin-left:8px">Code Repository</a>
+            </div>
+          </li>
+          <li>
+            <strong>MSU‑4S → nuScenes Conversion Toolkit</strong> — Standardized directories, sensor JSONs, and calibration management.
+            <div class="muted">• Compatible with BEVFusion training/validation • Includes example scripts and sanity checks</div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Publications -->
+      <section id="pubs" class="card" style="grid-column:1 / -1">
+        <h2>Publications</h2>
+        <ul class="list">
+          <li><strong>LiDAR‑Camera Self‑Calibration Using Cost Volume Network (LCCNet)</strong> — CVPR 2021 paper reproduction and evaluation.
+            <div class="muted">Authors et al., Conference/Journal, Year. BibTeX/DOI placeholder.</div>
+          </li>
+          <li><strong>Domain‑Adaptive LiDAR‑Camera Calibration (DA‑LCCNet)</strong> — Preprint / Under Review.
+            <div class="muted">Authors et al., arXiv:xxxx.xxxxx, Year.</div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="card" style="grid-column:1 / -1">
+        <h2>Contact</h2>
+        <p>Feel free to reach out regarding internships, collaborations, or open‑source contributions.</p>
+        <form name="contact" onsubmit="event.preventDefault(); alert('Thank you for your message! This is a static demo, please use email instead.');">
+          <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr;max-width:720px">
+            <input required placeholder="Your Name" style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)" />
+            <input required type="email" placeholder="Email" style="padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)" />
+            <textarea required placeholder="Message..." rows="4" style="grid-column:1/-1;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)"></textarea>
+            <button class="btn" type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Xinwei. Built with handcrafted HTML/CSS. 🤍</div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
