@@ -9,16 +9,52 @@
   <meta property="og:description" content="Researcher focusing on LiDAR–Camera sensor fusion, 3D perception, and autonomous driving." />
   <meta property="og:type" content="website" />
   <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg: #0b1220;
-      --card: #111a2e;
-      --text: #d8e1ff;
-      --muted: #a9b5d1;
-      --accent: #7aa2ff;
-      --border: #1d2a46;
-    }
-    @media (prefers-color-scheme: light){
+  <!-- <style>
+      :root {
+        --bg: #f5f3ee;       /* 米白底色 */
+        --card: #ffffff;     /* 卡片纯白 */
+        --text: #2b2b2b;     /* 深灰文字 */
+        --muted: #6e6e6e;    /* 暗灰副文字 */
+        --accent: #444;      /* 导航与链接颜色 */
+        --border: #ddd4c5;   /* 柔和边框 */
+      }
+      .nav .right a {
+        color: var(--accent);
+        font-weight: 500;
+        transition: all 0.25s ease;
+      }
+      .nav .right a:hover {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 2px solid #bfb6a1;
+        padding-bottom: 2px;
+      }
+
+      /* CV按钮的立体感设计 */
+      .btn {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, #faf9f7 0%, #ebe6de 100%);
+        border: 1px solid #c8bfae;
+        box-shadow:
+          inset 2px 2px 3px rgba(255, 255, 255, 0.8),
+          inset -2px -2px 3px rgba(0, 0, 0, 0.08),
+          2px 2px 6px rgba(0, 0, 0, 0.08);
+        font-weight: 500;
+        color: #3a3a3a;
+        transition: all 0.25s ease;
+      }
+      .btn:hover {
+        background: linear-gradient(180deg, #f0ebe2 0%, #e1d8c9 100%);
+        box-shadow:
+          inset -2px -2px 3px rgba(255, 255, 255, 0.7),
+          inset 2px 2px 3px rgba(0, 0, 0, 0.1),
+          0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+      }
+
+    /* @media (prefers-color-scheme: light){
       :root{
         --bg: #f7f9fc;
         --card: #ffffff;
@@ -27,7 +63,7 @@
         --accent: #335cff;
         --border: #e6eaf2;
       }
-    }
+    } */
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
     a{color:var(--accent);text-decoration:none}
@@ -83,14 +119,306 @@
       opacity: 1;
     }
 
+  </style> -->
+  <style>
+    /* ========== 基础主题变量（统一浅色米白风格） ========== */
+    :root{
+      --bg: #f5f3ee;       /* 页面米白底色 */
+      --card: #ffffff;     /* 卡片背景 */
+      --text: #2b2b2b;     /* 主文字 */
+      --muted: #6e6e6e;    /* 次文字 */
+      --accent: #444444;   /* 链接/导航颜色（非蓝） */
+      --border: #ddd4c5;   /* 柔和边框 */
+      --border-strong: #e3dccc;
+      --shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    /* ========== Reset & 全局排版 ========== */
+    *{ box-sizing:border-box; }
+    html,body{
+      margin:0; padding:0;
+      background:var(--bg); color:var(--text);
+      font:16px/1.6 "Inter","Noto Sans",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    h1,h2{ font-family:"Merriweather","Georgia",serif; }
+    a{ color:var(--accent); text-decoration:none; transition: color .2s ease; }
+    a:hover{ color:#000; text-decoration:none; }
+
+    .container{ max-width:1024px; margin:0 auto; padding:24px; }
+
+    /* ========== 顶部导航（粘顶 + 轻微磨砂悬浮） ========== */
+    .nav{
+      position: sticky; top:0; z-index:10;
+      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      padding:12px 0;
+      background: rgba(245,243,238,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .right{ display:flex; gap:14px; flex-wrap:wrap; }
+    .nav .right a{
+      color:var(--accent); font-weight:500; padding-bottom:2px; position:relative;
+      transition: all .25s ease;
+    }
+    .nav .right a:hover{
+      color:#000;
+    }
+    .nav .right a::after{
+      content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+      background:#bfb6a1; transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+    }
+    .nav .right a:hover::after{ transform:scaleX(1); }
+
+    /* .badge{
+      padding:6px 10px; border:1px solid var(--border); border-radius:999px;
+      background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(0,0,0,.02));
+      box-shadow: var(--shadow);
+      font-size:13px; color:#555;
+    } */
+    /* 左侧徽章变成“品牌胶囊” */
+    .nav .left{ display:flex; align-items:center; }
+
+    /* .badge{
+      display:flex; align-items:center; gap:10px;
+      padding:6px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:linear-gradient(180deg,#fdfbf8 0%, #eee6d9 100%);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), inset 1px 1px 2px rgba(255,255,255,0.7);
+      color:#3f3a34; font-weight:600; letter-spacing:.02em;
+      transition: transform .2s ease, box-shadow .25s ease;
+    } */
+
+    /* 徽章前面的圆形字母标（自动生成 XG） */
+    /* .badge::before{
+      content:"XG";
+      width:22px; height:22px; border-radius:50%;
+      display:grid; place-items:center;
+      font:700 12px/22px "Inter", system-ui, sans-serif;
+      color:#5a5247;
+      background: radial-gradient(ellipse at 30% 30%, #ffffff 0%, #efe7d8 85%);
+      border:1px solid #d5c8b3;
+      box-shadow:
+        inset 1px 1px 2px rgba(255,255,255,.85),
+        inset -1px -1px 2px rgba(0,0,0,.06);
+    } */
+     /* 左上角标题样式（非按钮风格） */
+     /* 左上角标题样式（静态标题，无悬浮效果） */
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 17px;
+      color: #3d352b;
+      letter-spacing: 0.02em;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      cursor: default; /* 禁止鼠标手型变化 */
+    }
+
+    /* 小圆徽标（纯平面、无阴影、无hover） */
+    .badge::before {
+      content: "XG";
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ded4c2;
+      color: #3b3429;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* 禁用 hover 效果 */
+    .badge:hover,
+    .badge::before:hover {
+      transform: none;
+      box-shadow: none;
+      background: #ded4c2;
+    }
+
+
+    /* ========== 头部 Hero ========== */
+    header.hero{
+      display:grid; grid-template-columns:120px 1fr; gap:20px; align-items:center; margin-top:8px;
+    }
+    .avatar{
+      width:120px; height:120px; border-radius:24px; object-fit:cover; background:#f0ede7;
+      border:1px solid var(--border-strong); box-shadow: var(--shadow);
+    }
+    h1{ font-size:28px; line-height:1.2; margin:0; }
+    .kicker{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+    .muted{ color:var(--muted); }
+
+    /* ========== 栅格与卡片 ========== */
+    .grid{ display:grid; gap:16px; }
+    @media (min-width: 860px){ .grid-3{ grid-template-columns:repeat(3,1fr); } }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border-strong);
+      border-radius:16px; padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .card h2{
+      margin:0 0 10px 0; font-size:18px; color:#3b3b3b;
+      border-bottom:2px solid var(--border); padding-bottom:4px;
+    }
+
+    /* ========== 列表与标签 ========== */
+    .list{ margin:0; padding:0; list-style:none; }
+    .list li{ padding:8px 0; border-top:1px dashed var(--border); }
+    .list li:first-child{ border-top:none; }
+
+    .pill{
+      display:inline-block; padding:4px 10px; margin:4px 6px 0 0;
+      border-radius:999px; background:#f4efe6; border:1px solid var(--border);
+      color:#5a564e; font-weight:500;
+    }
+
+    /* ========== Quick Links ========== */
+    .link-list{ list-style:none; margin:0; padding:0; }
+    .link-list li{
+      display:flex; align-items:center; gap:8px; padding:8px 0;
+      border-top:1px dashed var(--border);
+    }
+    .link-list li:first-child{ border-top:none; }
+    .icon{
+      width:18px; height:18px; opacity:.85;
+      filter: invert(20%) sepia(5%) saturate(200%) hue-rotate(10deg) brightness(95%);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    a:hover .icon{ transform:scale(1.08); opacity:1; }
+
+    /* ========== 按钮（凹凸拟物 + 悬停凸起） ========== */
+    .btn{
+      display:inline-block; padding:10px 18px; border-radius:12px;
+      background:linear-gradient(180deg,#fdfbf8 0%, #eae2d3 100%);
+      border:1px solid #d4c8b3;
+      box-shadow:
+        inset 1px 1px 2px rgba(255,255,255,0.8),
+        inset -2px -2px 3px rgba(0,0,0,0.05),
+        3px 3px 6px rgba(0,0,0,0.08);
+      color:#3a3a3a; font-weight:500; transition: all .25s ease;
+    }
+    .btn:hover{
+      background:linear-gradient(180deg,#f4ebdc 0%, #e1d5c0 100%);
+      box-shadow:
+        inset -1px -1px 2px rgba(255,255,255,0.6),
+        inset 2px 2px 3px rgba(0,0,0,0.1),
+        0 3px 8px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
+    /* ========== 表单控件（与卡片风格统一） ========== */
+    input, textarea{
+      padding:10px; border:1px solid var(--border-strong); border-radius:10px;
+      background:var(--card); color:var(--text);
+      outline:none; transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    input:focus, textarea:focus{
+      border-color:#d0c5b1; box-shadow: 0 0 0 3px rgba(208,197,177,.25);
+    }
+
+    /* ========== 细节工具类 ========== */
+    .nowrap{ white-space:nowrap; }
+
+    /* ========== 页脚 ========== */
+    footer{ margin:32px 0 12px; color:var(--muted); font-size:14px; }
+
+    /* ========== 调整头像区域按钮样式 ========== */
+    .hero {
+      grid-template-columns: 120px 1fr;
+      align-items: start;
+    }
+
+    .hero .btn.small-btn {
+      margin-top: 8px;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 10px;
+      background: linear-gradient(180deg,#faf8f4 0%,#e9e0d2 100%);
+      border: 1px solid #d8ccb6;
+      box-shadow:
+        inset 1px 1px 2px rgba(255,255,255,0.8),
+        inset -2px -2px 3px rgba(0,0,0,0.05),
+        2px 2px 4px rgba(0,0,0,0.08);
+      color:#3a3a3a;
+      transition: all 0.25s ease;
+      text-align: center;
+      display: block;
+      width: fit-content;
+    }
+
+    .hero .btn.small-btn:hover {
+      background: linear-gradient(180deg,#f1e8db 0%,#dfd4c1 100%);
+      box-shadow:
+        inset -1px -1px 2px rgba(255,255,255,0.6),
+        inset 2px 2px 3px rgba(0,0,0,0.1),
+        0 3px 8px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
+    /* --- 头像区域网格修正：头像列 + 内容列 --- */
+    header.hero{
+      display:grid;
+      grid-template-columns: 140px 1fr;   /* 左：头像列，右：正文列 */
+      grid-auto-rows: min-content;        /* 每一行高度自适应内容 */
+      align-items: start;
+      gap: 20px;
+    }
+
+    /* 让右侧正文固定在右列并跨两行（标题、摘要等都不被挤下去） */
+    .hero-content{
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+
+    /* 让 CV 按钮落在头像下方（同一列的下一行） */
+    .cv-under-avatar{
+      grid-column: 1;
+      grid-row: 2;
+      margin-top: 8px;
+      justify-self: start;   /* 左对齐 */
+    }
+
+    /* 小号按钮样式（保持凹凸质感，但更低调） */
+    .btn.small-btn{
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 10px;
+      background: linear-gradient(180deg,#faf8f4 0%,#e9e0d2 100%);
+      border: 1px solid #d8ccb6;
+      box-shadow:
+        inset 1px 1px 2px rgba(255,255,255,0.8),
+        inset -2px -2px 3px rgba(0,0,0,0.05),
+        2px 2px 4px rgba(0,0,0,0.08);
+      color:#3a3a3a;
+      transition: all 0.25s ease;
+    }
+    .btn.small-btn:hover{
+      background: linear-gradient(180deg,#f1e8db 0%,#dfd4c1 100%);
+      box-shadow:
+        inset -1px -1px 2px rgba(255,255,255,0.6),
+        inset 2px 2px 3px rgba(0,0,0,0.1),
+        0 3px 8px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
   </style>
+
 </head>
 <body>
   <div class="container">
     <!-- Navigation -->
     <nav class="nav">
       <div class="left">
-        <span class="badge">Xinwei · Personal Homepage</span>
+        <span class="badge">Xinwei Guo · Personal Homepage</span>
       </div>
       <div class="right">
         <a href="#about">About</a>
@@ -98,19 +426,40 @@
         <a href="#education">Education</a>
         <a href="#pubs">Publications</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="./Xinwei_CV.pdf" download>Download CV</a>
+        <!-- <a class="btn" href="./Xinwei_CV.pdf" download>Download CV</a> -->
       </div>
     </nav>
 
     <!-- Hero -->
-    <header class="hero">
+    <!-- <header class="hero">
       <img class="avatar" src="avatar.jpg" alt="Profile Picture" />
+      <a class="btn small-btn" href="./Xinwei_CV.pdf" download>Download CV</a>
       <div>
         <div class="kicker">LiDAR–Camera · 3D Perception · Autonomous Driving</div>
         <h1>Hello, I’m Xinwei.</h1>
         <p class="muted">
           Graduate researcher at MSU, focusing on LiDAR–Camera sensor fusion, self‑calibration, and 3D perception.
           Previously worked in the LiDAR industry on deployment, calibration, and performance evaluation. Currently developing DA‑LCCNet, a domain‑adaptive calibration network in PyTorch.
+        </p>
+        <div>
+          <span class="pill">PyTorch</span>
+          <span class="pill">Sensor Fusion</span>
+          <span class="pill">Calibration</span>
+          <span class="pill">3D Detection</span>
+        </div>
+      </div>
+    </header> -->
+    <header class="hero">
+      <img class="avatar" src="avatar.jpg" alt="Profile Picture" />
+      <a class="btn small-btn cv-under-avatar" href="./Xinwei_CV.pdf" download>Download CV</a>
+
+      <div class="hero-content">
+        <div class="kicker">LiDAR–Camera · 3D Perception · Autonomous Driving</div>
+        <h1>Hello, I’m Xinwei.</h1>
+        <p class="muted">
+          Graduate researcher at MSU, focusing on LiDAR–Camera sensor fusion, self-calibration, and 3D perception.
+          Previously worked in the LiDAR industry on deployment, calibration, and performance evaluation. Currently
+          developing DA-LCCNet, a domain-adaptive calibration network in PyTorch.
         </p>
         <div>
           <span class="pill">PyTorch</span>
